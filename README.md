@@ -1,1 +1,2 @@
-# Drag-n-drop-js
+# Drag-n-drop-js  
+Демонстрация работы:  
