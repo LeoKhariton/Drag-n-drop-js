@@ -1,0 +1,124 @@
+body {
+    padding: 1%;
+    font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+    background-color: #ededed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+h1 {
+    color: red;
+    text-align: center;
+    text-shadow: 1px 1px 1px #750000;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+/*button {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+}*/
+
+/*большой контейнер*/
+#dragScriptContainer {
+    padding: 1%;
+    user-select: none;
+
+    display: grid;
+    grid-gap: 10px;
+    grid-auto-flow: row;
+}
+/*контейнер с вопросами*/
+#questionDiv {
+    display: grid;
+    grid-gap: 12px;
+    grid-template-rows: 70% 20px;
+    grid-auto-columns: 15.6%;
+    grid-auto-flow: column;
+}
+/*контейнер с ответами*/
+#answerDiv {
+    display: grid;
+    grid-gap: 12px;
+    grid-auto-columns: 15.6%;
+    grid-auto-flow: column;
+    background-color: transparent !important;
+}
+
+/*стиль ячеек вопросов*/
+#questionDiv .dragDropSmallBox {
+    box-shadow: 0 0 40px #ccc;
+    overflow: hidden;
+}
+#questionDiv .dragDropSmallBox:hover {
+    transform: scale(1.4);
+}
+/*стиль ячеек ответов*/
+#answerDiv .dragDropSmallBox {
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 40px #ccc;
+}
+#answerDiv .dragDropSmallBox:hover {
+    animation: color-change 1s infinite;
+}
+@keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: red; }
+}
+/*ответ при перетаскивании*/
+#dragContent div {
+    text-align: center;
+    font-weight: bold;
+    animation: color-change 1s infinite;
+    cursor: pointer;
+}
+
+/*пустые ячейки для ответов*/
+#questionDiv .destinationBox {
+    height: 40px;
+    background-color: rgb(204, 182, 182);
+}
+#questionDiv .correctAnswer {
+    background-color: green;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    height: 40px;
+}
+#questionDiv .wrongAnswer {
+    background-color: red;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    height: 40px;
+}
+
+/*с захваченным ответом*/
+#questionDiv .dragContentOver {
+    border: 1px solid rgb(0, 255, 42);
+    height: 40px;
+}
+
+/*назад в контейнер*/
+#answerDiv.dragContentOver {
+    border: 1px dotted #ccc;
+}
+
+/* NEVER CHANGE THIS */
+#dragContent {
+    position: absolute;
+    display: none;
+}
+
+/*
+button.btn1 {
+    bottom: 5%;
+}
+button.btn2 {
+    bottom: 1%;
+}*/
