@@ -2,15 +2,15 @@
 <html lang="ru">
     <head>
 		<meta charset="UTF-8">
-		<title>Тест на установление соответствия 1</title>
+		<title>Тест на установление соответствия 2</title>
         <link href="styles.css" rel="stylesheet">
 		<script src="scripts.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body>
 		<h1>Тестирование</h1>
-		<h2>Тур 1</h2>
-		<h2>Установите соответствие между портретами основоположников сетевых технологий и их именами:</h2>
+		<h2>Тур 2</h2>
+		<h2>Установите соответствие между портретами основоположников сетевых технологий и их основными достижениями:</h2>
         <div id="dragScriptContainer">
 			<div id="questionDiv">
 				<div class="dragDropSmallBox" id="q1"><img src="images/winer.jpg"></div>
@@ -21,19 +21,19 @@
 				<div class="destinationBox"></div>
 				<div class="dragDropSmallBox" id="q4"><img src="images/stollman.jpg"></div>
 				<div class="destinationBox"></div>
-				<div class="dragDropSmallBox" id="q5"><img src="images/brin.jpeg"></div>
+				<div class="dragDropSmallBox" id="q5"><img src="images/kahn.jpg"></div>
 				<div class="destinationBox"></div>
-				<div class="dragDropSmallBox" id="q6"><img src="images/matkalf.jpg"></div>
+				<div class="dragDropSmallBox" id="q6"><img src="images/rayt.jpg"></div>
 				<div class="destinationBox"></div>
 			</div>
 
 			<div id="answerDiv">
-				<div class="dragDropSmallBox" id="a1">Норберт Винер</div>
-				<div class="dragDropSmallBox" id="a2">Линус Торвальдс</div>
-				<div class="dragDropSmallBox" id="a3">Тим Бернерс-Ли</div>
-				<div class="dragDropSmallBox" id="a4">Ричард Столлман</div>
-				<div class="dragDropSmallBox" id="a5">Сергей Брин</div>
-				<div class="dragDropSmallBox" id="a6">Роберт Меткалф</div>
+				<div class="dragDropSmallBox" id="a1">Отец кибернетики</div>
+				<div class="dragDropSmallBox" id="a2">Создатель ОС Linux</div>
+				<div class="dragDropSmallBox" id="a3">Создатель HTML</div>
+				<div class="dragDropSmallBox" id="a4">Идеолог свободного ПО</div>
+				<div class="dragDropSmallBox" id="a5">Изобретатель протокола IP</div>
+				<div class="dragDropSmallBox" id="a6">Создатель e-mail</div>
 			</div>
 		</div>
 		<div id="dragContent"></div>
@@ -46,7 +46,12 @@
 					<span id="min">0</span> минут
 					<span id="sec">0</span> секунд<br>
 				</span>
-			  <a href="second.html" class="close">Перейти ко 2 туру!</a>
+				<!--Суммарное время:
+				<span id="timer">
+					<span id="minend">0</span> минут
+					<span id="secend">0</span> секунд<br>
+				</span>-->
+			  <a href="#" class="close">Закрыть</a>
 			</div>
 		</div>
 		<script>startTimer();</script>

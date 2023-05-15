@@ -1,10 +1,40 @@
 var shuffleQuestions = true;	/* Shuffle questions ? */
 var shuffleAnswers = true;	/* Shuffle answers ? */
 var lockedAfterDrag = false;	/* Lock items after they have been dragged, i.e. the user get's only one shot for the correct answer */
-	
+
+
+var secs, now, timer, mins = 0;
+//var mins1 = 0, secs1 = 0;
+
+function time() {
+  secs = Math.floor((Date.now() - now)/1000)
+  if(secs == 60 ){
+    now = Date.now()
+    mins++
+  }
+  if(secs < 10){
+    secs = '0' + secs
+  }
+  $("#sec").text(secs);
+  $("#min").text(mins);
+}
+function startTimer() {
+  now = Date.now()
+  mins = 0
+  timer = setInterval(time)
+}
+
 function quizIsFinished()
 {
+	//mins1 += mins; secs1 += secs;
+
+	clearInterval(timer);
+	
+	//$("#secend").text(secs1);
+  	//$("#minend").text(mins1);
+
 	document.body.style.backgroundImage = "url(https://i.pinimg.com/originals/9b/96/79/9b96799d061a0528da6b0da7bac5374a.gif)";
+	location.href="#zatemnenie";
 }
 
 /* Don't change anything below here */
@@ -25,7 +55,7 @@ var arrayOfAnswers = new Array();
 	
 function getTopPos(inputObj)
 {		
-	if(!inputObj || !inputObj.offsetTop) return 0;		
+	if(!inputObj || !inputObj.offsetTop) return 0;
 	var returnValue = inputObj.offsetTop;
 	while((inputObj = inputObj.offsetParent) != null) returnValue += inputObj.offsetTop;
 	return returnValue;
@@ -33,12 +63,12 @@ function getTopPos(inputObj)
 
 function getLeftPos(inputObj)
 {
-	if(!inputObj || !inputObj.offsetLeft) return 0;	
+	if(!inputObj || !inputObj.offsetLeft) return 0;
 	var returnValue = inputObj.offsetLeft;
 	while((inputObj = inputObj.offsetParent) != null) returnValue += inputObj.offsetLeft;
 	return returnValue;
 }
-		
+
 function cancelEvent()
 {
 	return false;
@@ -109,8 +139,8 @@ function dragDropMove(e)
 					destinationObjArray[no]['obj'].className='dragContentOver';
 					destination = destinationObjArray[no]['obj'];					
 					objFound = true;
-		        }		
-	        }	
+		        }
+	        }
         }
 		
 		sourceObjectArray['obj'].className='';
@@ -188,8 +218,6 @@ function checkAllAnswers()
 		quizIsFinished();	
 }
 	
-
-	
 function resetPositions()
 {
 		if(dragDropTimer>=10)return;
@@ -198,13 +226,11 @@ function resetPositions()
 			if(destinationObjArray[no]['obj']){
 				destinationObjArray[no]['left'] = getLeftPos(destinationObjArray[no]['obj'])
 				destinationObjArray[no]['top'] = getTopPos(destinationObjArray[no]['obj'])	
-			}		
-			
+			}
 		}
 		sourceObjectArray['left'] = getLeftPos(answerDiv);
 		sourceObjectArray['top'] = getTopPos(answerDiv);		
 }
-	
 	
 function initDragDropScript()
 {
@@ -221,7 +247,6 @@ function initDragDropScript()
 				answers[answers.length] = divs[no];
 				arrayOfAnswers[arrayOfAnswers.length] = divs[no];
 			}
-			
 		}	
 		
 		if(shuffleAnswers){
@@ -244,7 +269,6 @@ function initDragDropScript()
 		
 	var questions = new Array();
 	var questionsOpenBoxes = new Array();
-		
 
 		for(var no=0;no<divs.length;no++){
 			if(divs[no].className=='destinationBox'){
@@ -260,8 +284,7 @@ function initDragDropScript()
 			}
 			if(divs[no].className=='dragDropSmallBox'){
 				questions[questions.length] = divs[no];
-			}
-				
+			}	
 		}
 		
 		if(shuffleQuestions){
@@ -277,9 +300,7 @@ function initDragDropScript()
 				questionsOpenBoxes[questionsOpenBoxes.length] = questionsOpenBoxes[randomIndex];
 				questionsOpenBoxes.splice(randomIndex,1);
 				questions[questions.length] = questions[randomIndex];
-				questions.splice(randomIndex,1);	
-				
-				
+				questions.splice(randomIndex,1);
 			}		
 		}
 		
