@@ -8,6 +8,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body>
+		<script>secondPage();</script>
+
 		<h1>Тестирование</h1>
 		<h2>Тур 2</h2>
 		<h2>Установите соответствие между портретами основоположников сетевых технологий и их основными достижениями:</h2>
@@ -40,20 +42,14 @@
 
 		<div id="zatemnenie">
 			<div id="okno">
-			  <b class="tit">Уведомление</b><br>
-			  Тест был пройден за
-				<span id="timer">
-					<span id="min">0</span> минут
-					<span id="sec">0</span> секунд<br>
-				</span>
-				<!--Суммарное время:
-				<span id="timer">
-					<span id="minend">0</span> минут
-					<span id="secend">0</span> секунд<br>
-				</span>-->
-			  <a href="#" class="close">Закрыть</a>
+				<b class="tit">Уведомление</b><br>
+			  	<span id="label_name"></span>, тест был пройден за <span id="timer1"></span>
+				Суммарное время: <span id="timer2"></span><br/>
+			  	<a href="#" class="close">Закрыть</a>
 			</div>
 		</div>
-		<script>startTimer();</script>
+		<footer>
+			<small>&copy; 2023 Лев Харитонов</small>
+		</footer>
 	</body>
 </html>

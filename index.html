@@ -8,6 +8,16 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body>
+		<script>location.href="#zatemnenie1";</script>
+		<div id="zatemnenie1">
+			<form id="okno1">
+			  <b class="tit">Авторизация</b><br>
+			  Пожалуйста, введите свое имя:
+			  <input type="text" class="nameinput" id="input_name" placeholder="Ваше имя">
+			  <a onClick="author()" class="close">Продолжить!</a>
+			</form>
+		</div>
+
 		<h1>Тестирование</h1>
 		<h2>Тур 1</h2>
 		<h2>Установите соответствие между портретами основоположников сетевых технологий и их именами:</h2>
@@ -26,7 +36,6 @@
 				<div class="dragDropSmallBox" id="q6"><img src="images/matkalf.jpg"></div>
 				<div class="destinationBox"></div>
 			</div>
-
 			<div id="answerDiv">
 				<div class="dragDropSmallBox" id="a1">Норберт Винер</div>
 				<div class="dragDropSmallBox" id="a2">Линус Торвальдс</div>
@@ -41,14 +50,12 @@
 		<div id="zatemnenie">
 			<div id="okno">
 			  <b class="tit">Уведомление</b><br>
-			  Тест был пройден за
-				<span id="timer">
-					<span id="min">0</span> минут
-					<span id="sec">0</span> секунд<br>
-				</span>
+			  <span id="label_name"></span>, тест был пройден за <span id="timer1"></span><br><br>
 			  <a href="second.html" class="close">Перейти ко 2 туру!</a>
 			</div>
 		</div>
-		<script>startTimer();</script>
+		<footer>
+			<small>&copy; 2023 Лев Харитонов</small>
+		</footer>
 	</body>
 </html>

@@ -1,41 +1,51 @@
-var shuffleQuestions = true;	/* Shuffle questions ? */
-var shuffleAnswers = true;	/* Shuffle answers ? */
+var shuffleQuestions = true; //перемешивать вопросы?
+var shuffleAnswers = true; //перемешивать ответы?
 var lockedAfterDrag = false;	/* Lock items after they have been dragged, i.e. the user get's only one shot for the correct answer */
 
-
-var secs, now, timer, mins = 0;
-//var mins1 = 0, secs1 = 0;
-
-function time() {
-  secs = Math.floor((Date.now() - now)/1000)
-  if(secs == 60 ){
-    now = Date.now()
-    mins++
-  }
-  if(secs < 10){
-    secs = '0' + secs
-  }
-  $("#sec").text(secs);
-  $("#min").text(mins);
+var nameS = "";
+var a, b, time = 0, time_ = 0;
+function startTimer() { a = performance.now(); }
+function author()
+{
+	nameS = document.getElementById('input_name').value;
+	if (nameS == "") {
+		var el = document.getElementById('okno1');
+		el.addEventListener("click", function() { el.classList.add('animateaut'); });
+		el.addEventListener("animationend", function() { el.classList.remove('animateaut'); }, false);
+	} else {
+		location.href="#";
+		startTimer();
+	}
 }
-function startTimer() {
-  now = Date.now()
-  mins = 0
-  timer = setInterval(time)
+function secondPage()
+{
+	startTimer();
+	let firstdata = localStorage.getItem('firstdata').split('*');
+	nameS = firstdata[0];
+	time_ = Number(firstdata[1]);
+}
+function msToTime(duration) {
+	var seconds = Math.floor((duration / 1000) % 60),
+	    minutes = Math.floor((duration / (1000 * 60)) % 60);
+	minutes = (minutes < 10) ? "0" + minutes : minutes;
+	seconds = (seconds < 10) ? "0" + seconds : seconds;
+	return minutes + ":" + seconds;
 }
 
 function quizIsFinished()
 {
-	//mins1 += mins; secs1 += secs;
-
-	clearInterval(timer);
+	b = performance.now();
+	time = b - a; //в миллисекундах
 	
-	//$("#secend").text(secs1);
-  	//$("#minend").text(mins1);
-
+	$('#label_name').text(nameS);
+	$('#timer1').text(msToTime(time));
+	$('#timer2').text(msToTime(time_ + time));
 	document.body.style.backgroundImage = "url(https://i.pinimg.com/originals/9b/96/79/9b96799d061a0528da6b0da7bac5374a.gif)";
 	location.href="#zatemnenie";
+
+	localStorage.setItem('firstdata', nameS + '*' + time);
 }
+
 
 /* Don't change anything below here */
 var dragContentDiv = false;
